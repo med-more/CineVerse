@@ -1,9 +1,14 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+export default function Navbar() {
   return (
-    <div>Navbar</div>
-  )
-}
+    <nav className="navbar">
+      <h2 className="logo">CineVerse</h2>
 
-export default Navbar
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
+    </nav>
+  );
+}
