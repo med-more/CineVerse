@@ -1,0 +1,39 @@
+body {
+    background: #0d0d0d;
+    color: white;
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* navbar */
+.navbar {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    color: #ff3d3d;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    margin-left: 25px;
+    font-size: 15px;
+    color: #ddd;
+}
+
+.nav-links a:hover {
+    color: #ff3d3d;
+    transition: 0.2s;
+}
