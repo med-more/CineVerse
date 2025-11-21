@@ -1,9 +1,26 @@
+:root {
+  --bg: #030303;
+  --card: #111115;
+  --card-dark: #0c0c0f;
+  --text: #f5f5f5;
+  --muted: #c2c2c2;
+  --border: rgba(255, 255, 255, 0.08);
+  --primary: #ff2d55;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background: #0d0d0d;
-    color: white;
-    font-family: "Arial", sans-serif;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, rgba(255, 45, 85, 0.15), transparent 40%), var(--bg);
+  color: var(--text);
+}
+
+.content{
+    min-height: calc(100vh - 140px);
 }
 
 a {
@@ -36,4 +53,75 @@ a {
 .nav-links a:hover {
     color: #ff3d3d;
     transition: 0.2s;
+}
+
+/* Hero "Med" */
+.home{
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.hero{
+    margin-top: 30px;
+    border-radius: 32px;
+    min-height: 420px;
+    padding: 60px;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(115deg, rgba(3, 3, 3, 0.1) 20%, rgba(3, 3, 3, 0.9))
+    url("https://images.unsplash.com/photo-1542204637-e67bc7d41e48?auto=format&fit=crop&w=1400&q=80");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content{
+    max-width: 560px;
+}
+
+.hero-kicker{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.hero h1{
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 0 0 14px;
+}
+
+hero-description{
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 26px;
+}
+
+.hero-actions{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-explore{
+    border-radius: 999px;
+    padding: 12px 28px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-explore{
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-explore:hover{
+    transform: translateY(-1px);
+    opacity: 0.95;
 }
