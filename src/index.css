@@ -125,3 +125,132 @@ hero-description{
     transform: translateY(-1px);
     opacity: 0.95;
 }
+
+
+.trending {
+  margin-top: 40px;
+}
+
+.trending-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.trending-header h2 {
+  margin: 0;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.movie-card {
+  background: var(--card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.movie-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-thumb img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-rating,
+.movie-duration {
+  position: absolute;
+  top: 14px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.movie-rating {
+  left: 14px;
+}
+
+.movie-duration {
+  right: 14px;
+}
+
+.play-btn {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.movie-thumb:hover .play-btn {
+  opacity: 1;
+}
+
+.movie-info {
+  padding: 0 18px 18px;
+}
+
+.movie-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movie-top h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.movie-year {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.movie-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.movie-tags span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--card-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: #ffbebe;
+}
