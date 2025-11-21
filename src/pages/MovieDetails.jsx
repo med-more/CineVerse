@@ -1,21 +1,25 @@
-import { useParams, Link } from "react-router-dom"
-import { movies } from "../data/movies"
-import poster from "../assets/images/fastx.jpeg"
+import { useParams, Link } from "react-router-dom";
+import { movies } from "../data/movies";
+import defaultPoster from "../assets/images/fastx.jpeg";
 
-const FALLBACK_TAGS = ["action", "Adventure"];
-const MovieDetails = () => {
-    const { id } = useParams();
-    const movie = movies.find((m) =>m.id === Number(id));
-    if(!movie) return <h2>Film non trouve</h2>
+const FALLBACK_TAGS = ["Action", "Aventure"];
 
-    const tags = movie.tags && movie.tags.length ? movie.tags : FALLBACK_TAGS;
-    const rating = movie.rating ?? "8.0";
-    const duration = movie.duration ?? "2h 05";
+export default function MovieDetails() {
+  const { id } = useParams();
+  const movie = movies.find((m) => m.id === Number(id));
+
+  if (!movie) return <h2>Film non trouvé</h2>;
+
+  const tags = movie.tags && movie.tags.length ? movie.tags : FALLBACK_TAGS;
+  const rating = movie.rating ?? "8.0";
+  const duration = movie.duration ?? "2h 05";
+  const posterSrc = movie.image || defaultPoster;
+
   return (
     <section className="details">
       <div className="details-card">
         <div className="details-media">
-          <img src={poster} className="details-img" alt={movie.title} />
+          <img src={posterSrc} className="details-img" alt={movie.title} />
           <span className="badge rating-badge">{rating} IMDb</span>
           <span className="badge duration-badge">{duration}</span>
         </div>
@@ -44,7 +48,5 @@ const MovieDetails = () => {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
-export default MovieDetails
