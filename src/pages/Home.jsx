@@ -1,18 +1,21 @@
-import { useRef } from "react"
-import { Link } from "react-router-dom"
-import { movies } from "../data/movies"
-import poster from "../assets/images/fastx.jpeg"
-const Home = () => {
-    const trendingRef = useRef(null);
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { movies } from "../data/movies";
+import defaultPoster from "../assets/images/fastx.jpeg";
 
-    const handleExplore = () =>{
-        if(trendingRef.current){
-            trendingRef.current.scrollIntoView({behavior: "smooth"});
-        }
-    };
+export default function Home() {
+  const trendingRef = useRef(null);
+
+  const handleExplore = () => {
+    if (trendingRef.current) {
+      trendingRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="home">
-        <section className="hero">
+
+      <section className="hero">
         <div className="hero-content">
           <p className="hero-kicker">Nouveautés en avant-première</p>
           <h1>Choisissez vos meilleurs films et explorez CineVerse</h1>
@@ -28,6 +31,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section className="trending" ref={trendingRef}>
         <div className="trending-header">
           <div>
@@ -40,11 +44,12 @@ const Home = () => {
           {movies.map((movie) => {
             const rating = movie.rating ?? "8.0";
             const duration = movie.duration ?? "2h 05";
+            const posterSrc = movie.image || defaultPoster;
 
             return (
               <Link to={`/movie/${movie.id}`} key={movie.id} className="movie-card">
                 <div className="movie-thumb">
-                  <img src={poster} alt={movie.title} />
+                  <img src={posterSrc} alt={movie.title} />
                   <span className="movie-rating">{rating}</span>
                   <span className="movie-duration">{duration}</span>
                   <span className="play-btn">▶</span>
@@ -62,7 +67,5 @@ const Home = () => {
         </div>
       </section>
     </div>
-  )
+  );
 }
-
-export default Home
